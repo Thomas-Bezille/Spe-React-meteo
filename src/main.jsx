@@ -7,4 +7,4 @@ import './styles/index.scss';
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<WeatherWidger />);
+root.render(<WeatherWidger city="Nantes" zipCode="44000" />);

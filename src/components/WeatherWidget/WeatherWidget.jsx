@@ -1,17 +1,27 @@
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import './WeatherWidger.scss';
 
-const WeatherWidger = () => {
+const WeatherWidget = ({ zipCode, city }) => {
+  const [temperature, setTemperature] = useState('-');
+
   return (
     <article className="weather-widget">
       <div className="weather-container">
         <div className="weather-infos">
-          <h3 className="weather-city">Nantes</h3>
-          <p className="weather-zipcode">44000</p>
+          <h3 className="weather-city">{city}</h3>
+          <p className="weather-zipcode">{zipCode}</p>
         </div>
-        <div className="weather-temperature">20°</div>
+        <div className="weather-temperature">{temperature}</div>
       </div>
     </article>
   );
 };
 
-export default WeatherWidger;
+WeatherWidget.propTypes = {
+  zipCode: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+};
+
+export default WeatherWidget;
