@@ -1,10 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import App from './components/App/App';
+import WeatherWidger from './components/WeatherWidget/WeatherWidget';
 
 import './styles/index.scss';
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<App />);
+root.render(<WeatherWidger />);
