@@ -1,10 +1,23 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import './WeatherWidger.scss';
 
 const WeatherWidget = ({ zipCode, city }) => {
   const [temperature, setTemperature] = useState('-');
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001')
+      .then((response) => {
+        const temperatureFromApi = response.data.main.temp;
+        setTemperature(`${Math.round(temperatureFromApi)}°`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [zipCode]);
 
   return (
     <article className="weather-widget">
